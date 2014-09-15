@@ -1,0 +1,8 @@
+#ifndef STREETRACER_CAMERA_BASE_H
+#define STREETRACER_CAMERA_BASE_H
+
+class Camera_Base
+{
+
+};
+#endif

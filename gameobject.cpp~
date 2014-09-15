@@ -1,0 +1,3 @@
+#include "gameobject.h"
+
+const Rtti GameObject::s_type
