@@ -1,0 +1,8 @@
+#ifndef STREETRACER_SINGLETON_H
+#define STREETRACER_SINGLETON_H
+
+class Singleton<clas T>
+{
+
+};
+#endif

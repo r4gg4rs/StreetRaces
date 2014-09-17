@@ -1,0 +1,15 @@
+#ifndef STREETRACER_SDL_APP_H
+#define STREETRACER_SDL_APP_H
+
+#include "../app.h"
+class SdlApp
+{
+ public:
+  SdlApp();
+  ~SdlApp();
+
+  virtual void Initialize();
+  virtual void Start();
+  virtual void Shutdown();
+};
+#emdif

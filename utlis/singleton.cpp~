@@ -1,0 +1,16 @@
+#include "singleton.h"
+
+Singleton::Singleton()
+{
+
+}
+
+Singleton::~Singleton()
+{
+
+}
+
+T* Singleton::GetSingletonPtr()
+{
+
+}

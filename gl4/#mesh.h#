@@ -1,0 +1,10 @@
+#ifndef STREETRACER_MESH_H
+#define STREETRACER_MESH_H
+
+#include "../geometry/
+
+class Mesh
+{
+
+}
+#endif

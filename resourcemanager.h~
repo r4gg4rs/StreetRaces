@@ -1,0 +1,8 @@
+#ifndef STREETRACER_RESOURCEMANAGER_H
+#define STREETRACER_RESOURCEMANAGER_H
+
+class IResource
+{
+
+};
+#endif

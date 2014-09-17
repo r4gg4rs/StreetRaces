@@ -1,0 +1,11 @@
+Aikaisempi peli projekti eräänlainen Settlers klooni hävisi bittiavaruuten koneen uudelleen asentamisen myötä. Sen siitä saa kun käyttää linuxia ja pitää osaa tiedostoista windows osiolla. No nyt on ainoastaan linux koneella joten tuo ongelma pitäisi sinänsä olla poissa, joka tapauksessa tapauksesta viisantuneena päätin pistää projektin githubiin.
+
+Pelin katoamisen myötä piti alkaa miettimään tekeekö tuon settlers kloonin uudelleen ja jatkaa sitä vai aloittaako uuden projektin. Tutkailin hetken tallessa olevia aiempia "projekteja", tai ei niitä varsinaisiksi projektiksi voi kutsua kun lähinnä joitakin objekteja liikkuu ruudulla. Huomasin eräänlaisen autopelin jossa "hahmo (laatikko) pystyi kävelemään ja nousumaan autoon ( laatikko jossa pyörät) ja autolla pystyy ajamaan. Jousitusta sun muuta siihen oli tarkoitus tehdä, mutta oli hieman ongelmia tuon kanssa aikoinaan, joten päätin silloin siirtyä helpomman projektin pariin aluksi No aika raakile, koodikaan ei paras mahdollinen joten päätin ottaa idean siitä ja toteuttaa alusta alkaen uudelleen.
+ 
+Nyt suunnitelmassa on aluksi saada auto simuloitua ja sitten myöhemmässä vaiheessa rakennella kaupunki, muut autot jalankulkijat ++.
+
+Aimmissa projekteissa olen aina käyttänyt Glut:tia joten vaihtelun vuoksi ajattelin vaihtelun vuoksi käyttää SDL:ää
+
+Olen aika aloittelija näiden 3d pelien kanssa joten kaikki ei ole vielä hallinnassa. Joten vinkkejä saa antaa esimerkiksi sähköpostiin r4gg4rs@yahoo.com
+
+Erityisen hankalaksi koen "pelin arkkitehtuurin" eli siis miten järkevästi järjestelen koodin. Eli esimerkiksi renderöindi. Teenkö objektille renderöindi metodin vai teenkö erillisen renderöijän. Jälkimmäinen käsittääkseni on järkevämpi, mutta en vielä oikein hahmoita miten se toimii.
