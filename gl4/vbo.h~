@@ -1,0 +1,8 @@
+#ifndef STREETRACER_GL_VBO_H
+#define STREETRACER_GL_VBO_H
+
+class Vbo
+{
+
+};
+#endif

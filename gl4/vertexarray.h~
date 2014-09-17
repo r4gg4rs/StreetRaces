@@ -1,0 +1,8 @@
+#ifndef STREETRACER_VERTEXARRAY_H
+#define STREETRACER_VERTEXARRAY_H
+
+class VertexArray
+{
+
+}:
+#endif

@@ -7,6 +7,12 @@
 class SdlApp
 {
  public:
+
+  /*
+    TODO ohjelman käynnistys
+    tällä hetkellä uusi ikkuna syntyy kun 
+    pyydetää ositinta tai referenssiä
+   */
   static SdlApp* GetSingletonPtr();
   static SdlApp& GetSingleton();
   static void Delete();

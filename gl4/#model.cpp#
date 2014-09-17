@@ -43,6 +43,7 @@ void LoadObj(std::string& filename)
             {
               /* Vertex */
               Vector3 vert;
+              
             }
           else if(line[1] == 't')
             {

@@ -2,6 +2,8 @@
 #define STREETRACER_MODEL_H
 
 #include<vector>
+#include<iostream>
+#include<ifstream>
 
 class Model
 {

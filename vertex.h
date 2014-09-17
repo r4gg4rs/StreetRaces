@@ -7,7 +7,8 @@
 
 struct Vertex
 {
-  Vector4 Position;
-  Vector4 Normal;
+  Vector3 Position;
+  Vector3 Normal;
+ 	Vector2 TextCoord;
   Vector4 Color;
 };

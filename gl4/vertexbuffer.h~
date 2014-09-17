@@ -1,0 +1,8 @@
+#ifndef STREETRACER_VERTEXBUFFER_H
+#define STREETRACER_VERTEXBUFFER_H
+
+class VertexBuffer
+{
+
+};
+#endif
