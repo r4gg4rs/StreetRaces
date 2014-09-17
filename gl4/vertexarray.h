@@ -11,6 +11,6 @@ class VertexArray
   ~VertexArray();
   void SetData(std::vector<Vertex>& vertices, std::vector<int>& indices);
  private:
-  
+  GLuint m_handle;
 }:
 #endif

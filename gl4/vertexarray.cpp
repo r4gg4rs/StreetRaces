@@ -38,4 +38,25 @@ void VertexArray::SetData(std::vector<Vertex>& vertices, std::vector<int>& indic
       textCoords.push_back( vertices[ı].TextCoord );
       colors.push_back( vertices[i].Color );
     }
+    
+  GLuint m_handle;
+ 	glGenVertexArray(1, &m_handle);
+	glBindVertexArray(m_handle);
+    
+  GLuint buffer_handle;
+  glGenBuffer(1, &buffer_handle);
+
+  glBindBuffer(GL_ARRAY_BUFFER, buffer_handle);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(positions) + sizeof(normals) + sizeof(colors),NULL,GL_STATIC_DRAW);
+  glBufferSubData(GL_ARRAY_BUFFER, 0                 , sizeof(positions) , &positions[0]);
+  glBufferSubData(GL_ARRAY_BUFFER, sizeof(positions) , sizeof(normals)   , &normals[0]);
+  glBufferSubData(GL_ARRAY_BUFFER, sizeof(positions)+ sizeof(normals),
+                  sizeof(colors), &colors[0]);
+
+  GLenum element_handle;
+  glGenBuffer(1, &element_handle);
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_handle);
+  glBufferData(GL_ELEMET_ARRAY_BUFFER, &indices[0], GL_STATIC_DRAW);
+
+
 }
