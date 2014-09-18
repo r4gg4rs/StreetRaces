@@ -1,0 +1,10 @@
+#ifndef STREETRACER_SCENE_NODE_H
+#define STREETRACER_SCENE_NODE_H
+
+class SceneNode
+{
+
+ private:
+  SceneNode* m_child;
+};
+#endif
