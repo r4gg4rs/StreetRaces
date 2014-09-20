@@ -33,7 +33,8 @@ class Shader
   void SetUniform(const std::string& name, const Vector3 &cvec);
   void SetUniform(const std::string& name, const Matrix4 &mat);
  private:
-  GLuint m_handle;
+  GLuint m_program;
   std::vector<ShaderSource> m_sources;
+  std::vector<GLuint> m_shaders;
 };
 #endif

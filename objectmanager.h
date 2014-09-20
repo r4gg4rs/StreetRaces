@@ -6,6 +6,8 @@ class ObjectManager
  public:
   static ObjectManager* GetSingletonPtr();
   static ObjectManager& GetSingleton();
+
+  void Register(
  private:
   ObjectManager();
   ~ObjectManager();

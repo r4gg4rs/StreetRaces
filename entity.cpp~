@@ -1,0 +1,22 @@
+#include "entity.h"
+
+Entity::Entity()
+{
+
+}
+
+Entity::~Entity()
+{
+
+}
+
+void Entity::Load()
+{
+  p_mesh = new Mesh();
+}
+
+void Entity::Render()
+{
+  p_mesh->Render();
+}
+

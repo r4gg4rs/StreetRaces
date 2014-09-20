@@ -4,6 +4,7 @@
 //#include "../app.h"
 #include "sdl.inc"
 #include <string>
+#include "../scene.h"
 class SdlApp
 {
  public:
@@ -19,8 +20,10 @@ class SdlApp
   SdlApp();
   ~SdlApp();
 
-	void Start();
+  void Start();
   void Shutdown();
+  void Render();
+  void Update();
 	private:
 		int screen_pos_x = 100;
 		int screen_pos_y = 100;
@@ -29,7 +32,7 @@ class SdlApp
 		std::string title;
 		SDL_Window* p_window;
 		SDL_GLContext m_context;
-		
+                Scene m_scene;
 		bool m_runing;
 };
 #endif

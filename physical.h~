@@ -1,0 +1,8 @@
+#ifndef STREETRACER_PHYSICAL_H
+#define STREETRACER_PHYSICAL_H
+
+class Physical
+{
+
+};
+#endif

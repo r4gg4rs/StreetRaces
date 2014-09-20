@@ -20,10 +20,11 @@ class GameObject
   int GetID() const;
   void SetTag(std::string tag);
   std::string GetTag();
+  virtual std::string Type() const;
  private:
   int m_ID;
   std::string m_tag;
 private: 
-  int  s_nextID;
+  static int  s_nextID;
 };
 #endif

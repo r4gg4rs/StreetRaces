@@ -3,7 +3,7 @@
   @version : 14.09.2014
 */
 
-#include "../math/vec.h"
+#include "./math/vec.h"
 
 struct Vertex
 {

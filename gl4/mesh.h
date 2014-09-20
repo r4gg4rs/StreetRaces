@@ -2,8 +2,10 @@
 #define STREETRACER_MESH_H
 
 #include "../vertex.h"
+#include <GL/gl.h>
 
 #include <string>
+#include <vector>
 
 class Mesh
 {
@@ -13,7 +15,7 @@ class Mesh
   void Render();
   void SetData(std::vector<Vertex> vertices, std::vector<int> indices);
   const std::vector<Vertex>& GetVertices() const;
-  const std::vector<int>& GetIndics() const ;
+  const std::vector<int>& GetIndices() const;
 
  private:
   std::vector<Vertex> m_vertices;

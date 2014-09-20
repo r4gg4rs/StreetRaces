@@ -1,0 +1,13 @@
+#ifndef STREETRACER_VEHICLE_H
+#define STREETRACER_VEHICLE_H
+
+class Vehicle : public PhysicsObject
+{
+ public:
+  Vehicle();
+  ~Vehicle();
+ private:
+};
+
+
+#endif

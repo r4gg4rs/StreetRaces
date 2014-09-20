@@ -15,6 +15,9 @@ class Camera_Base : public ICamera
   virtual Matrix4& GetProjectionMatrix(); 
  private:
 
+  Matrix4    m_viewMatrix;
+  Matrix4    m_projectionMatrix;
+
   Vector3    m_position;
   Vector3    m_target;
   Vector3    m_up;

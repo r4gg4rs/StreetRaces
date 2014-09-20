@@ -1,0 +1,12 @@
+#include "sdl_renderer.h"
+
+SdlRender::SdlRenderer()
+{
+
+}
+
+SdlRender::~SdlRenderer()
+{
+
+}
+

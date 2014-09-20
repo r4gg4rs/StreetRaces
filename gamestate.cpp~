@@ -1,0 +1,23 @@
+#include "gamestate.h"
+
+MenuState::MenuState()
+{
+
+}
+
+MenuState::~MenuState()
+{
+
+}
+
+void MenuState::Render()
+{
+
+}
+
+
+void MenuState::Update()
+{
+
+}
+

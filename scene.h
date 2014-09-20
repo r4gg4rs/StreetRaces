@@ -2,6 +2,9 @@
 #define STREETRACER_SCENE_H
 
 #include "gameobject.h"
+#include <list>
+#include <vector>
+#include "entity.h"
 
 class Scene
 {
@@ -9,9 +12,11 @@ class Scene
   Scene();
   ~Scene();
   void Initialize();
-  void Shutdown();
+  //  void Shutdown();
   void AddObject(GameObject* object);
+  void Render();
+  void Update();
  private:
-  std::list<GameObject*>
+  std::vector<GameObject*> m_objects; // Switch to list
 };
 #endif
