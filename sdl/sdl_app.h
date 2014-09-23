@@ -5,6 +5,8 @@
 #include "sdl.inc"
 #include <string>
 #include "../scene.h"
+#include "sdl_eventmanager.h"
+
 class SdlApp
 {
  public:
@@ -21,6 +23,7 @@ class SdlApp
   ~SdlApp();
 
   void Start();
+  void Stop();
   void Shutdown();
   void Render();
   void Update();
@@ -34,5 +37,8 @@ class SdlApp
 		SDL_GLContext m_context;
                 Scene m_scene;
 		bool m_runing;
+		SdlEventManager* p_eventManager;
+
+                Uint32 m_prevTime;
 };
 #endif

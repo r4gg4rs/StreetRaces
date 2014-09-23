@@ -1,5 +1,5 @@
 #include "gameobject.h"
-
+#include <iostream>
 /*
 const Rtti GameObject::s_type
 */
@@ -8,7 +8,7 @@ int GameObject::s_nextID = 1;
 
 GameObject::GameObject()
 {
-
+  m_ID = s_nextID++;
 }
 
 GameObject::~GameObject()

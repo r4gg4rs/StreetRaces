@@ -3,13 +3,20 @@
 
 #include "icamera.h"
 
+#include "../math/math_inc.h"
+
 class Camera_Base : public ICamera
 {
 
  public:
   Camera_Base();
   ~Camera_Base();
-  
+
+  void SetPosition(const Vector3& position);
+  const Vector3& GetPosition() const;
+
+  void SetTarget(const Vector3& target);
+  const Vector3& GetTarget() const;
 
   virtual Matrix4& GetViewMatrix();
   virtual Matrix4& GetProjectionMatrix(); 
@@ -25,5 +32,7 @@ class Camera_Base : public ICamera
   float     m_fieldOfView;
   float     m_nearPlane;
   float     m_farPlane;
+  float     m_aspectRatio;
+
 };
 #endif

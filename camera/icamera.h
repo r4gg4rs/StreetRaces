@@ -1,6 +1,8 @@
 #ifndef STREETRACER_H
 #define STREETRACER_H
 
+#include "../math/math_inc.h"
+
 class ICamera
 {
  public:

@@ -1,8 +1,0 @@
-#ifndef STREETRACER_RENDERER_H
-#define STREETRACER_RENDERER_H
-
-class Renderer
-{
-
-};
-#endif

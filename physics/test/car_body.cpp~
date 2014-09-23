@@ -1,0 +1,6 @@
+#include "CarBody.h"
+
+CarBody::CarBody()
+{
+
+}

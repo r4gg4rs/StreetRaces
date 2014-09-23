@@ -1,0 +1,5 @@
+#ifndef STREETRACER_CORE_H
+#define STREETRACER_CORE_H
+
+#define float real;
+#endif

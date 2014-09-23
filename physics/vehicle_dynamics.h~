@@ -1,0 +1,7 @@
+#ifndef SR_PHYSICS_VEHICLE_DYNAMICS_H
+#define SR_PHYSICS_VEHICLE_DYNAMICS_H
+
+#include "vehicle_engine.h"
+
+
+#endif

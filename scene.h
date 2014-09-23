@@ -5,6 +5,12 @@
 #include <list>
 #include <vector>
 #include "entity.h"
+#include "ecar.h"
+#include "./camera/icamera.h"
+#include "./camera/camera_base.h"
+#include "./sdl/sdl_eventmanager.h"
+
+#include "./physics/test/car.h"
 
 class Scene
 {
@@ -15,8 +21,10 @@ class Scene
   //  void Shutdown();
   void AddObject(GameObject* object);
   void Render();
-  void Update();
+  void Update(float dt);
  private:
   std::vector<GameObject*> m_objects; // Switch to list
+  std::vector<Entity*> m_entitys;
+ 	ICamera* p_camera;
 };
 #endif

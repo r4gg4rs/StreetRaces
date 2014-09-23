@@ -5,8 +5,28 @@
 
 #include "./math/vec.h"
 
-struct Vertex
+class Vertex
 {
+
+	public:
+		bool operator==(const Vertex& vert)
+		{
+			
+			return 	Position == vert.Position && 
+							Normal == vert.Normal &&
+							TextCoord == vert.TextCoord &&
+							Color == vert.Color;						
+		}
+		bool operator !=(const Vertex& vert)
+		{
+			return 	Position != vert.Position &&
+							Normal != vert.Normal &&
+							TextCoord != vert.TextCoord &&
+							Color != vert.Color;		
+		}
+
+	public:
+	
   Vector3 Position;
   Vector3 Normal;
  	Vector2 TextCoord;

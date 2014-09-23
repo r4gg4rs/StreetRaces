@@ -1,0 +1,8 @@
+#ifndef SR_RENDERER_H
+#define SR_RENDERER_H
+
+class Render
+{
+
+};
+#endif

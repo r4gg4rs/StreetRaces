@@ -1,0 +1,8 @@
+#ifndef SR_COLLISION_SPHERE_H
+#define SR_COLLISION_SPHERE_H
+
+class Sphere
+{
+
+};
+#endif

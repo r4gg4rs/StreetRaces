@@ -1,0 +1,46 @@
+#ifndef STREETRACING_PHYSICS_BODY_H
+#define STREETRACING_PHYSICS_BODY_H
+
+
+#include "core.h"
+
+class Body
+{
+ public:
+  Body();
+  ~Body();
+
+  void SetPosition(const Vector3& position);
+  const Vector3& GetPosition() const;
+
+  void SetVelocity(const Vector3& velocity);
+  void AddVelocity(const Vector3& velocity);
+  const Vector3& GetVelocity() const;
+
+  void SetAcceleration(const Vector3& acceleration);
+  void AddAcceleration(const Vector3& acceleration);
+  const Vector3& GetAcceleration() const;
+
+void SetTotalForce(const Vector3& force);
+void AddForce(const Vector3& force);
+const Vector3& GetForce() const;
+
+  void SetMass(real mass);
+  real GetMass() const;
+
+  void SetInverseMass(real inverseMass);
+  real GetInverseMass() const;
+
+
+
+ protected:
+   Vector3 m_position;
+   Vector3 m_velocity;
+   Vector3 m_acceleration;
+   Vector3 m_force;
+   real m_inverseMass;
+
+Vector3 m_angularVelocity;
+Vector3 m_torque;
+};
+#endif

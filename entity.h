@@ -8,18 +8,27 @@
 #include "gameobject.h"
 #include "./gl4/mesh.h"
 #include "./math/math_inc.h"
-class Entity : public GameObject
+#include "renderable.h"
+#include "updateable.h"
+#include "controllable.h"
+
+class Entity : public GameObject, public IRenderable, public Updateable , public Controllable
 {
  public:
   Entity();
-  ~Entity();
+  virtual ~Entity();
   void Load();
-  void Render();
+  void Render(RenderState &state);
+  void Update(float dt);
   void SetPosition(const Vector3& pos);
+
   const Vector3& GetPosition() const;
   virtual std::string Type() const;
- private:
+
+ protected:
   Vector3 m_position;
   Mesh* p_mesh;
+  float m_angle;
+  Vector3 m_heading;
 };
 #endif

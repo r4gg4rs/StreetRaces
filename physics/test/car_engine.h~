@@ -1,0 +1,8 @@
+#ifndef SR_ENGINE_H
+#define SR_ENGINE_H
+
+class Engine
+{
+
+};
+#endif

@@ -1,0 +1,8 @@
+#ifndef SR_CAR_H
+#define SR_CAR_H
+
+class Car : public Body
+{
+
+};
+#endif

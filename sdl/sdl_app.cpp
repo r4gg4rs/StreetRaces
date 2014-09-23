@@ -6,7 +6,9 @@ SdlApp::SdlApp()
 {
 	title="testi";
 	m_runing =false;
-        m_scene.Initialize();
+  m_scene.Initialize();
+  p_eventManager = SdlEventManager::GetSingletonPtr();
+  m_prevTime = 0;
 }
 
 SdlApp::~SdlApp()
@@ -52,18 +54,19 @@ void SdlApp::Start()
 	m_runing = true;
 	
 	SDL_Event event;
-	
+        glViewport(0,0,screen_width,screen_height);
 	while(m_runing)
 	{
-		if(SDL_PollEvent(&event))
-		{
-			if(event.type == SDL_QUIT)break;// m_runing =  false;
-			if(event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE) m_runing = false;
-		}
+		p_eventManager->Update();
 		Update();
                 Render();
 		
 	}
+}
+
+void SdlApp::Stop()
+{
+  m_runing = false;
 }
 
 void SdlApp::Shutdown()
@@ -75,17 +78,23 @@ void SdlApp::Shutdown()
 void SdlApp::Render() 
 {
   glClear(GL_COLOR_BUFFER_BIT);
+  
+    /*
   glBegin(GL_LINES);
   glVertex2f(-0.2f,0.0f);
   glVertex2f( 0.2f,0.0f);
   glEnd();
+ */
   m_scene.Render();
   SDL_GL_SwapWindow(p_window);
 }
 
 void SdlApp::Update()
 {
-  m_scene.Update();
+  Uint32 time = SDL_GetTicks();
+  float dt = (float)time - (float) m_prevTime;
+  m_prevTime = time;
+m_scene.Update(dt);
 }
 
 

@@ -1,0 +1,21 @@
+#include "ecar.h"
+
+EWheel::EWheel()
+{
+
+}
+
+EWheel::~EWheel()
+{
+
+}
+
+ECar::ECar()
+{
+
+}
+
+ECar::~ECar()
+{
+
+}

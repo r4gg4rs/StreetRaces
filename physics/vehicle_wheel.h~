@@ -1,0 +1,8 @@
+#ifndef SR_VEHICLE_WHEEL_H
+#define SR_VEHICLE_WHEEL_H
+
+class VehicleWheel
+{
+
+};
+#endif

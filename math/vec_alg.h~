@@ -1,0 +1,10 @@
+#ifndef CHOPPER_MATH_VECTOR_ALG_H
+#define CHOPPER_MATH_VECTOP_ALG_H
+
+#include "math.h"
+
+namespace MATH
+{
+
+};
+#endif

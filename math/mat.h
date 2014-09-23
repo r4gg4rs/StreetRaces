@@ -1,8 +1,8 @@
 #ifndef STREETRACER_MAT_H
 #define STREETRACER_MAT_H
 
-#include <glm/glm.hpp>
+#include "glm_inc.h"
 
-#define glm::mat4 Matrix4
+typedef glm::mat4 Matrix4;
 
 #endif

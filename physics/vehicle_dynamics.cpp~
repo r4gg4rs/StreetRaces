@@ -1,0 +1,6 @@
+#include "vehicle_dynamics.h"
+
+VehicleDynamics::VehicleDynamics()
+{
+
+}
