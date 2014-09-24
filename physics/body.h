@@ -23,6 +23,7 @@ class Body
 
 void SetTotalForce(const Vector3& force);
 void AddForce(const Vector3& force);
+void ClearForce();
 const Vector3& GetForce() const;
 
   void SetMass(real mass);
@@ -31,7 +32,7 @@ const Vector3& GetForce() const;
   void SetInverseMass(real inverseMass);
   real GetInverseMass() const;
 
-
+	void Simulate(real dt);
 
  protected:
    Vector3 m_position;

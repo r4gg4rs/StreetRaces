@@ -64,6 +64,10 @@ const Vector3& Body::GetForce() const
   return m_force;
 }
 
+void Body::ClearForce()
+{
+	m_force = Vector3(0.0f,0.0f,0.0f);
+}
 void Body::SetMass(real mass)
 {
   m_inverseMass = 1 /mass;
@@ -82,4 +86,9 @@ void Body::SetInverseMass(real inverseMass)
 real Body::GetInverseMass() const
 {
   return m_inverseMass;
+}
+
+void Body::Simulate(real dt)
+{
+
 }

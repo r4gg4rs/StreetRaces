@@ -2,6 +2,12 @@
 
 namespace MATH
 {
+	float Abs(float val)
+	{
+		if( val < 0) return -val;
+		return val;
+	}
+
   float RadToDeg(float rad)
   {
     return 180 / M_PI * rad;

@@ -21,6 +21,7 @@ void Scene::Initialize()
   AddObject(entity);
 
   ECar* entcar = new ECar();
+  entcar->SetPosition(Vector3( 2.0f,0.0f, -3.0f));
   entcar->Load();
   //entcar->SetPosition(Vector3(0.0f,0.0f,0.0f));
   SdlEventManager::GetSingleton().SetCar(entcar);

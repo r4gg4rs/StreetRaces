@@ -1,6 +1,8 @@
 #ifndef STREETRACER_CAMERAMANAGER_H
 #define STREETRACER_CAMERAMANAGER_H
 
+#include <stdio.h>
+
 class CameraManager
 {
  public:

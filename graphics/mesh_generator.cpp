@@ -1,23 +1,43 @@
 #include "mesh_generator.h"
 
-namespcace MESH
+namespace MESH
 {
-  void MakeBox(std::vector<Vertex>& vertices, std::vector<int>& indices, float width, float height, float lehnght)
+  void MakeBox(std::vector<Vertex>& vertices, std::vector<int>& indices, float width, float height, float lenght)
   {
     float x= width /2;
     float y = height /2;
     float z = lenght /2;
 
-    Vertex vert1,vert2,vert3,vert4, vert5,vert6,vert7,vert8;
+    Vertex leftUpFront,leftDownFront,rightDownFront,rightUpFront, rightUpBack,rightDownBack,leftDownBack, leftUpBack;
     
-    vert1.Position = Vector3(-x, y,-z);
-    vert2.Position = Vector3( x, y,-z);
-    vert3.Position = Vector3( x, y, z);
-    vert4.Position = Vector3(-x, y, z);
-    AddQuads(vertices,indices,ver1,vert2,vert3,vert4);
-
+    leftUpFront.Position		= Vector3( -x,  y,  z);
+   	leftDownFront.Position	= Vector3( -x, -y,  z);
+   	rightDownFront.Position	= Vector3(  x, -y,  z);
+   	rightUpFront.Position 	= Vector3(  x,  y,  z);
+   	rightUpBack.Position 		= Vector3(  x,  y, -z);
+   	rightDownBack.Position  = Vector3(  x, -y, -z);
+   	leftDownBack.Position 	= Vector3( -x, -y, -z);
+   	leftUpBack.Position			= Vector3( -x,  y, -z);
+   	
+   	AddQuad(vertices,indices,leftUpFront,leftDownFront, rightDownFront,rightUpFront); //front
+   	AddQuad(vertices,indices, rightUpFront,rightDownFront,rightDownBack,rightUpBack); // left
+   	AddQuad(vertices,indices, rightUpBack,rightDownBack,leftDownBack,leftUpBack); // back
+   	AddQuad(vertices,indices, leftUpBack, leftDownBack, leftDownFront, leftUpFront);  // left
+   	AddQuad(vertices,indices, leftUpFront, rightUpFront, rightUpBack, leftUpBack); // up
+   	AddQuad(vertices,indices, leftDownBack, rightDownBack,rightDownFront, leftDownFront); // down
     
   }
+  
+  void MakeWheel(std::vector<Vertex>& vertices, std::vector<int>& indices, float radius,float width)
+  {
+  	
+  }
+  
+    
+	void MakeRim(std::vector<Vertex>& vertices, std::vector<int>& indices, float radius, float width)
+	{
+	
+	}
   
   void AddQuad(std::vector<Vertex>& vertices, std::vector<int>& indices,
                Vertex& vert1, Vertex& vert2, Vertex& vert3, Vertex& vert4)
@@ -36,7 +56,7 @@ namespcace MESH
     AddVertex(vertices,indices,vert3);
   }
 
-  void AddVertex(std::vector<Vertex>& vertices, std::vector<int> indices, Vertex& vertex)
+  void AddVertex(std::vector<Vertex>& vertices, std::vector<int>& indices, Vertex& vertex)
   {
     for(unsigned int i=0; i< vertices.size(); i++)
       {
@@ -47,13 +67,14 @@ namespcace MESH
           }
       }
     unsigned int index = vertices.size();
+    vertices.push_back(vertex);
     indices.push_back(index);
   }
 
   void CalculateNormal(Vertex& vertex1, Vertex& vertex2, Vertex& vertex3)
   {
     Vector3 a = vertex3.Position - vertex1.Position;
-    Vector3 b = vectex3.Position - vertex2.Position;
+    Vector3 b = vertex3.Position - vertex2.Position;
 
     Vector3 normal = MATH::Cross(a,b);
 

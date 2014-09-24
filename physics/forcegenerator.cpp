@@ -1,10 +1,26 @@
 #include "forcegenerator.h"
 
+Gravity::Gravity(const Vector3& gravity) : m_gravity(gravity)
+{
+
+}
+
+Gravity::~Gravity()
+{
+
+}
+
+void Gravity::UpdateForce(Body* body, float dt)
+{
+	body->AddForce(m_gravity * body->GetMass() );
+}
+
 void ForceRegistry::Add(Body* body, ForceGenerator* fg)
 {
-  BodyForce bf;
+  BodyForcePair bf;
   bf.body = body;
   bf.forceGenerator = fg;
+  registrations.push_back(bf);
 }
 
 void ForceRegistry::Remove(Body* body,ForceGenerator* fg)
@@ -19,9 +35,9 @@ void ForceRegistry::Clear()
 
 void ForceRegistry::UpdateForces(float dt)
 {
-  for(int i=0; i< registrations.size(); i++)
+  for(unsigned int i=0; i< registrations.size(); i++)
     {
-      registrations[i].forceGenerator.UpdateForce(
+      registrations[i].forceGenerator->UpdateForce(
                                                   registrations[i].body,
                                                   dt );
                                                

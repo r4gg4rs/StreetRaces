@@ -2,7 +2,7 @@
 #define STREETRACER_PHYSICSMANAGER_H
 
 #include "body.h"
-
+#include "forcegenerator.h"
 #include <vector>
 
 class PhysicsManager
@@ -15,7 +15,7 @@ class PhysicsManager
   void Initialize();
   void ShutDown();
 
-  Body* GetNewBody();
+  Body* GetNewBody(std::vector<string> forceGenerators);
   void AddBody(Body* body);
  private:
   PhysicsManager();

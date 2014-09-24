@@ -16,6 +16,8 @@ class Car : public Entity
   void TurnRight();
  private:
   CarBody m_body;
+
+  float m_steeringAngle;
   //  CarPhysics m_carPhysics;
   //CarEngine m_engine;
 };

@@ -29,7 +29,7 @@ CameraManager& CameraManager::GetSingleton()
 
 void CameraManager::Delete()
 {
-  CameraManager* manager = GetSingletonPTr();
+  CameraManager* manager = GetSingletonPtr();
   manager->Shutdown();
   delete manager;
 }

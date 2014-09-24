@@ -3,6 +3,9 @@
   @version : 14.09.2014
 */
 
+#ifndef SR_VERTEX_H
+#define SR_VERTEX_H
+
 #include "./math/vec.h"
 
 class Vertex
@@ -32,3 +35,5 @@ class Vertex
  	Vector2 TextCoord;
   Vector4 Color;
 };
+
+#endif

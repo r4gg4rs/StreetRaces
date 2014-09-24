@@ -26,7 +26,7 @@ class Entity : public GameObject, public IRenderable, public Updateable , public
   virtual std::string Type() const;
 
  protected:
-  Vector3 m_position;
+  Vector3 m_Position;
   Mesh* p_mesh;
   float m_angle;
   Vector3 m_heading;

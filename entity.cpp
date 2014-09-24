@@ -13,6 +13,7 @@ Entity::~Entity()
 void Entity::Load()
 {
   p_mesh = new Mesh();
+  p_mesh->Load("Cube");
 }
 
 void Entity::Update(float dt)
@@ -32,19 +33,19 @@ void Entity::Render(RenderState& state)
   if(p_mesh == NULL) std::cout << "Mesh puuttuu "<<std::endl;
   std::cout <<" X " << m_position.x << " Y "<< m_position.y << std::endl;
   */
-  std::vector<Vector3> vertices = p_mesh->GetVertexArray();
+  std::vector<Vertex> vertices = p_mesh->GetVertices();
   std::vector<int> indices = p_mesh->GetIndices();
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
   
-  glTranslatef(m_position.x, m_position.y, m_position.z);
+  glTranslatef(m_Position.x, m_Position.y, m_Position.z);
   glRotatef(m_angle,0.0f,1.0f,0.0f);
-  glBegin(GL_QUADS);
+  glBegin(GL_TRIANGLES);
   for(unsigned int i=0; i< indices.size(); i++)
     {
       unsigned int index = indices[i];
-      glVertex3f(vertices[index].x, vertices[index].y, vertices[index].z);
+      glVertex3f(vertices[index].Position.x, vertices[index].Position.y, vertices[index].Position.z);
      
     }
   glEnd();
@@ -54,12 +55,12 @@ void Entity::Render(RenderState& state)
 
 void Entity::SetPosition(const Vector3& pos)
 {
-  m_position = pos;
+  m_Position = pos;
 }
 
 const Vector3& Entity::GetPosition() const
 {
-  return m_position;
+  return m_Position;
 }
 
 std::string Entity::Type() const

@@ -42,7 +42,7 @@ void PhysicsManager::ShutDown()
 }
 
 
-Body* PhysicsManager::GetNewBody()
+Body* PhysicsManager::GetNewBody(std::vector<string> forceGenerators);
 {
   Body* body = new Body();
 
