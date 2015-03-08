@@ -12,6 +12,7 @@ Scene::Scene()
 Scene::~Scene()
 {
 
+
 }
 void Scene::Initialize()
 {
@@ -20,12 +21,14 @@ void Scene::Initialize()
   entity->SetPosition(Vector3(-2.2f,0.0f,2.0f));
   AddObject(entity);
 
-  ECar* entcar = new ECar();
+  entcar = new ECar();
   entcar->SetPosition(Vector3( 2.0f,0.0f, -3.0f));
   entcar->Load();
   //entcar->SetPosition(Vector3(0.0f,0.0f,0.0f));
   SdlEventManager::GetSingleton().SetCar(entcar);
-  p_camera = new Camera_Base();
+  
+  p_fCamera = new FollowCamera();
+  p_camera = p_fCamera;
   Entity *e = entcar;
   AddObject(e);
 
@@ -75,6 +78,7 @@ void Scene::Render()
 
 void Scene::Update(float dt)
 {
+	p_fCamera->SetFollowPosition(entcar->GetPosition()); // kameran päivitys pitäis hoitaa fiksummin
 	for(unsigned int i=0; i < m_entitys.size(); i++)
 	{
 		m_entitys[i]->Update(0.0f);

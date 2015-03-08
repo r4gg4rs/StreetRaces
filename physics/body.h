@@ -21,10 +21,11 @@ class Body
   void AddAcceleration(const Vector3& acceleration);
   const Vector3& GetAcceleration() const;
 
-void SetTotalForce(const Vector3& force);
-void AddForce(const Vector3& force);
-void ClearForce();
-const Vector3& GetForce() const;
+	void SetTotalForce(const Vector3& force);
+	void AddForce(const Vector3& force);
+	
+	void ClearForce();
+	const Vector3& GetForce() const;
 
   void SetMass(real mass);
   real GetMass() const;
@@ -33,7 +34,7 @@ const Vector3& GetForce() const;
   real GetInverseMass() const;
 
 	void Simulate(real dt);
-
+	void Print();
  protected:
    Vector3 m_position;
    Vector3 m_velocity;

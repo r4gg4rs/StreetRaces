@@ -13,14 +13,14 @@
 
 
 class ECar;
-
+/*
 typedef void(Controllable::*ControlFunc)();
 struct key_pair
 {
   SDL_Keycode key;
   ControlFunc function;
 };
-
+*/
 class SdlEventManager// :  public EventManager
 {
 public:
@@ -32,15 +32,15 @@ public:
   void ShutDown();
   void Update();
 
-void RegisterEvent(SDL_Keycode key, ControlFunc* function);
+//void RegisterEvent(SDL_Keycode key, ControlFunc* function);
 
-  CarController* GetCarController();
+  //CarController* GetCarController();
   void SetCar(ECar * car);
  private:
   SdlEventManager();
   ~SdlEventManager();
-  CarController* p_carController;
+  //CarController* p_carController;
   ECar * p_car;
-std::map<SDL_Keycode,ControlFunc* > m_events;
+//std::map<SDL_Keycode,ControlFunc* > m_events;
 };
 #endif

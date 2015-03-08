@@ -1,8 +1,9 @@
 #include "forcegenerator.h"
+#include <iostream>
 
 Gravity::Gravity(const Vector3& gravity) : m_gravity(gravity)
 {
-
+	std::cout << "ForceGenerator luotu " << std::endl;
 }
 
 Gravity::~Gravity()

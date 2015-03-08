@@ -1,0 +1,6 @@
+sr_graphics.a : mesh_generator.o
+	ar rcs sr_graphics.a mesh_generator.o 
+	
+mesg_generator.o : mesh_generator.cpp
+	g++ -Wall -c mesh_generator.cpp ../math/sr_math.a	
+	

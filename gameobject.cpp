@@ -1,5 +1,8 @@
 #include "gameobject.h"
 #include <iostream>
+
+
+
 /*
 const Rtti GameObject::s_type
 */

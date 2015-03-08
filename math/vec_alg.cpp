@@ -25,6 +25,7 @@ namespace MATH
     temp.x = (vec1.y * vec2.z) - ( vec1.z - vec2.y);
     temp.y = (vec1.z * vec2.x) - ( vec1.x - vec2.z);
     temp.z = (vec1.x * vec2.y) - ( vec1.y - vec2.x);
+    
 
     return temp;
   }

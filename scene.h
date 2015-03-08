@@ -6,8 +6,7 @@
 #include <vector>
 #include "entity.h"
 #include "ecar.h"
-#include "./camera/icamera.h"
-#include "./camera/camera_base.h"
+#include "./camera/sr_camera.h"
 #include "./sdl/sdl_eventmanager.h"
 
 #include "./physics/test/car.h"
@@ -23,8 +22,10 @@ class Scene
   void Render();
   void Update(float dt);
  private:
-  std::vector<GameObject*> m_objects; // Switch to list
-  std::vector<Entity*> m_entitys;
- 	ICamera* p_camera;
+  std::vector<GameObject*>	m_objects;		// Switch to list
+  std::vector<Entity*> 			m_entitys;
+ 	ICamera* 									p_camera;
+ 	FollowCamera* 						p_fCamera;		// kameran testausta varten
+  ECar* 										entcar; 			// kameran testausta varten
 };
 #endif

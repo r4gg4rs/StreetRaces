@@ -8,23 +8,26 @@
 
 #include <string>
 
-/*
-  Gameobjects base class every gameobject should inherit this
- */
-class GameObject
+namespace SR
 {
- public:
-  GameObject();
-  ~GameObject();
-
-  int GetID() const;
-  void SetTag(std::string tag);
-  std::string GetTag();
-  virtual std::string Type() const;
- private:
-  int m_ID;
-  std::string m_tag;
-private: 
-  static int  s_nextID;
-};
+  /*
+    Gameobjects base class every gameobject should inherit this
+   */
+  class GameObject
+  {
+   public:
+    GameObject();
+    ~GameObject();
+  
+    int GetID() const;
+    void SetTag(std::string tag);
+    std::string GetTag();
+    virtual std::string Type() const;
+   private:
+    int m_ID;
+    std::string m_tag;
+  private: 
+    static int  s_nextID;
+  };
+}
 #endif

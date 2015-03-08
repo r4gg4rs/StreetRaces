@@ -1,8 +1,8 @@
 sr_math.a : math.o vec_alg.o
-	ar rcs sr_math.a math.o vec_alg.o	
+	g++ -shared -o sr_math.so math.o vec_alg.o	
 	
 math.o : math.cpp
-	g++ -Wall -c math.cpp
+	g++ -c -Wall -Werror -dPIC math.cpp
 	
 vec_alg.o : vec_alg.cpp
-	g++ -Wall -c vec_alg.cpp
+	g++ -c -Wall -Werror -fPIC vec_alg.cpp

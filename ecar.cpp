@@ -1,8 +1,12 @@
 #include "ecar.h"
 #include <iostream>
-EWheel::EWheel()
+EWheel::EWheel() 
 {
-
+	std::vector<std::string> forcegen;
+	forcegen.push_back("Gravity");
+	p_body = PhysicsManager::GetSingleton().GetNewBody(forcegen);
+	p_body->SetMass(10.0f);
+	
 }
 
 EWheel::~EWheel()
@@ -25,8 +29,9 @@ EWheel::~EWheel()
 */
 ECar::ECar()
 {
+	Initialize();
 	//SetMass(1000.0f);
-	m_inverseMass = 1/ 1000.0f;
+	//m_inverseMass = 1/ 1000.0f;
 }
 
 ECar::~ECar()
@@ -34,48 +39,48 @@ ECar::~ECar()
 
 }
 
+void ECar::Initialize()
+{
+	std::vector<std::string> forcegen;
+	forcegen.push_back("Gravity");// TODO read force generators in file so that they can be aded later on
+	p_body = PhysicsManager::GetSingleton().GetNewBody(forcegen); 
+	p_body->SetMass(1000.0f);
+
+//	p_FL_wheel = new Ewheel(); // TODO pyydä objectfactoryltä
+// 	p_FR_wheel = new Ewheel();
+//  p_RL_wheel = new Ewheel();
+//  p_RR_wheel = new Ewheel();
+}
+
 void ECar::Update(float dt)
 {
-	// force = mass * acceleration
-	// acceleration = force / mass
-	// acceleration = force * inverse mass
-	Vector3 acc = m_force* m_inverseMass;
-	m_velocity += acc;
-	//std::cout << "acceleration x  "<< acc.x << " y  " << acc.y << " z  " << acc.z << std::endl; 
-	//SetAcceleration(GetForce() * GetMass() );
-	//Vector3 acc = GetAcceleration();
-	//AddVelocity(acc);
-	//Vector3 vel = GetVelocity();	
-	float speed = MATH::Lenght(m_velocity);
-	//std::cout<< "speed : " << speed <<  "Inverse mass " << GetInverseMass() << std::endl;
-	Vector3 dis =	m_heading * speed;
-	
-	//m_Position += m_heading;
-	m_force = Vector3(0.0f,0.0f,0.0f);
-	//std::cout << "pos "<< m_Position.x << std::endl;
+	p_body->Simulate(dt);
+	Vector3 velocity = p_body->GetVelocity();
+	float speed = MATH::Lenght(velocity);
+	m_Position += m_heading * speed;	
 	Entity::Update(dt);
 }
 
 void ECar::Accelerate()
 {
-	m_Position += m_heading;
+//	m_Position += m_heading;
 	std::cout << m_Position.x << std::endl;
-	m_force  = Vector3(0.0f,0.0f,1500.0f);
+	p_body->AddForce( Vector3(0.0f,0.0f,50.0f) );
 	//AddForce(Vector3(0.0f,0.0f,5.0f));
 	//m_position += m_heading;
 }
 
 void ECar::Brake()
 {
-
+	p_body->AddForce(Vector3(0.0f,0.0f,-50.0f) );
 }
 
 void ECar::TurnLeft()
 {
-  m_angle += 1.0f;
+  m_angle += 3.0f;
 }
 
 void ECar::TurnRight()
 {
- m_angle -= 1.0f;
+ m_angle -= 3.0f;
 }

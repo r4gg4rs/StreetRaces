@@ -1,3 +1,8 @@
+/**
+* @author		: Jani Haippo
+* @version	: 03.2015
+**/
+
 #ifndef STREETRACER_CAMERA_BASE_H
 #define STREETRACER_CAMERA_BASE_H
 
@@ -5,34 +10,48 @@
 
 #include "../math/math_inc.h"
 
-class Camera_Base : public ICamera
+typedef float Real;
+
+namespace Chopper
 {
 
- public:
-  Camera_Base();
-  ~Camera_Base();
+	class Camera_Base : public ICamera
+	{
 
-  void SetPosition(const Vector3& position);
-  const Vector3& GetPosition() const;
+	 public:
+		Camera_Base();
+		~Camera_Base();
 
-  void SetTarget(const Vector3& target);
-  const Vector3& GetTarget() const;
+		void SetPosition(const Vector3& position);
+		const Vector3& GetPosition() const;
 
-  virtual Matrix4& GetViewMatrix();
-  virtual Matrix4& GetProjectionMatrix(); 
- private:
+		void SetTarget(const Vector3& target);
+		const Vector3& GetTarget() const;
 
-  Matrix4    m_viewMatrix;
-  Matrix4    m_projectionMatrix;
 
-  Vector3    m_position;
-  Vector3    m_target;
-  Vector3    m_up;
+		void	SetFieldOfView(Real fov);
+		Real	GetFieldOfView() const;	
 
-  float     m_fieldOfView;
-  float     m_nearPlane;
-  float     m_farPlane;
-  float     m_aspectRatio;
+		void 	UpdateMatrix();
 
-};
+		virtual Matrix4& GetViewMatrix();
+		virtual Matrix4& GetProjectionMatrix(); 
+	 protected:
+
+		Matrix4    m_viewMatrix;
+		Matrix4    m_projectionMatrix;
+
+		Vector3    m_position;
+		Vector3    m_target;
+		Vector3    m_up;
+
+		Real     m_fieldOfView;
+		Real     m_nearPlane;
+		Real     m_farPlane;
+		Real     m_aspectRatio;
+		
+		bool			m_matrixNeedsUpdate;
+
+	};
+}
 #endif

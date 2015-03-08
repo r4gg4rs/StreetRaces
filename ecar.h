@@ -6,13 +6,17 @@
 #include "./sdl/sdl_eventmanager.h"
 #include "./physics/body.h"
 #include "./math/math_inc.h"
-
+#include "./physics/physicsmanager.h"
+//#include "scenemanger.h"
 
 class EWheel : public Entity
 {
  public:
   EWheel();
   ~EWheel();
+  
+	private:
+		Body* p_body;
 };
 
 class ECar : public Entity
@@ -20,7 +24,7 @@ class ECar : public Entity
  public:
   ECar();
   ~ECar();
-  
+  void Initialize();
   void Update(float dt);
   
   void Accelerate();
@@ -30,13 +34,14 @@ class ECar : public Entity
 
  private:
 	Body*  p_body;
-  EWheel m_FL_wheel;
-  EWheel m_FR_wheel;
-  EWheel m_RL_wheel;
-  EWheel m_RR_wheel;
-  CarController* p_controller;
-	Vector3 m_force;
-	Vector3 m_velocity;
-	float m_inverseMass;
+
+  EWheel* p_FL_wheel;
+  EWheel* p_FR_wheel;
+  EWheel* p_RL_wheel;
+  EWheel* p_RR_wheel;
+  //CarController* p_controller;
+	//Vector3 m_force;
+	//Vector3 m_velocity;
+	//float m_inverseMass;
 };
 #endif

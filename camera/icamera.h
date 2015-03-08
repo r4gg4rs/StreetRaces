@@ -3,10 +3,13 @@
 
 #include "../math/math_inc.h"
 
-class ICamera
+namespace Chopper
 {
- public:
-  virtual Matrix4& GetViewMatrix()=0;
-  virtual Matrix4& GetProjectionMatrix()=0;
-};
+	class ICamera
+	{
+	 public:
+		virtual Matrix4& GetViewMatrix()=0;
+		virtual Matrix4& GetProjectionMatrix()=0;
+	};
+}
 #endif

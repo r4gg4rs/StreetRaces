@@ -6,9 +6,12 @@ SdlApp::SdlApp()
 {
 	title="testi";
 	m_runing =false;
-  m_scene.Initialize();
   p_eventManager = SdlEventManager::GetSingletonPtr();
   m_prevTime = 0;
+  screen_pos_x = 100;
+	screen_pos_y = 100;
+	screen_width = 800;
+	screen_height = 400;
 }
 
 SdlApp::~SdlApp()
@@ -42,6 +45,11 @@ void SdlApp::Delete()
 
 void SdlApp::Start()
 {
+	
+	
+	p_scene = new Scene();// SceneManager::GetSingleton().GetScene();
+	p_scene->Initialize();
+ 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
                 SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
@@ -59,7 +67,7 @@ void SdlApp::Start()
 	{
 		p_eventManager->Update();
 		Update();
-                Render();
+    Render();
 		
 	}
 }
@@ -71,6 +79,7 @@ void SdlApp::Stop()
 
 void SdlApp::Shutdown()
 {
+	delete p_scene;
 	SDL_GL_DeleteContext(m_context);
 	SDL_Quit();
 }
@@ -85,7 +94,7 @@ void SdlApp::Render()
   glVertex2f( 0.2f,0.0f);
   glEnd();
  */
-  m_scene.Render();
+  p_scene->Render();
   SDL_GL_SwapWindow(p_window);
 }
 
@@ -94,15 +103,8 @@ void SdlApp::Update()
   Uint32 time = SDL_GetTicks();
   float dt = (float)time - (float) m_prevTime;
   m_prevTime = time;
-m_scene.Update(dt);
+	p_scene->Update(dt);
 }
 
 
-int main(int argc, char** argv)
-{
-	SdlApp* app = SdlApp::GetSingletonPtr();
-        //        app->Start();
-	
-	SdlApp::Delete();
-	return 0;	
-}
+

@@ -1,5 +1,5 @@
 #include "body.h"
-
+#include <iostream>
 Body::Body()
 {
 }
@@ -33,6 +33,7 @@ const Vector3& Body::GetVelocity() const
 {
   return m_velocity;
 }
+
 
 void Body::SetAcceleration(const Vector3& acceleration)
 {
@@ -90,5 +91,15 @@ real Body::GetInverseMass() const
 
 void Body::Simulate(real dt)
 {
+	m_acceleration = m_force * m_inverseMass;
+	m_velocity += m_acceleration;
+	m_position += m_velocity;
+	ClearForce();
+}
 
+
+
+void Body::Print()
+{
+	
 }

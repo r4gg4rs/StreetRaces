@@ -82,6 +82,7 @@ void SdlEventManager::Update()
 		
 
 }
+/*
 void SdlEventManager::RegisterEvent(SDL_Keycode key,ControlFunc* func)
 {
   m_events[key] = func;
@@ -95,7 +96,7 @@ CarController* SdlEventManager::GetCarController()
     }
   return p_carController;
 }
-
+*/
 void SdlEventManager::SetCar(ECar* car)
 {
   p_car = car;

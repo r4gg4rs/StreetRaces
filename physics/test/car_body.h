@@ -8,7 +8,7 @@ class CarBody : public Body
  public:
   CarBody();
   ~CarBody();
-  //void Turn(flaot val);
+  void Turn(float val);
  protected:
   float m_steeringAngle;
   float m_maxAngle;

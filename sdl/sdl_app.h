@@ -5,7 +5,9 @@
 #include "sdl.inc"
 #include <string>
 #include "../scene.h"
+//#include "../scenemanger.h"
 #include "sdl_eventmanager.h"
+
 
 class SdlApp
 {
@@ -28,14 +30,14 @@ class SdlApp
   void Render();
   void Update();
 	private:
-		int screen_pos_x = 100;
-		int screen_pos_y = 100;
-		int screen_width = 800;
-		int screen_height = 400;
+		int screen_pos_x;
+		int screen_pos_y;
+		int screen_width;
+		int screen_height;
 		std::string title;
 		SDL_Window* p_window;
 		SDL_GLContext m_context;
-                Scene m_scene;
+    Scene* p_scene;
 		bool m_runing;
 		SdlEventManager* p_eventManager;
 
