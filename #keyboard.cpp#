@@ -1,7 +1,0 @@
-#include "keyboard.h"
-
-Keyboard::Keyboard()
-{
-  m_keystates = new bool[256];
-  m_
-}

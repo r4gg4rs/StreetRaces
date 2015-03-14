@@ -15,6 +15,7 @@ VaoObject::~VaoObject()
 
 void VaoObject::Render()
 {
-  
+ if(p_vao != NULL) p_vao->Bind();
+ 
 }
 

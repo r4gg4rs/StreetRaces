@@ -1,8 +1,0 @@
-#ifndef STREETRACES_OBJECTMANAGER_H
-#define STREETRACES_OBJECTMANAGER_H
-
-class ObjectManager
-{
-
-};
-#endif

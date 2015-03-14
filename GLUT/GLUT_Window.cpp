@@ -2,6 +2,8 @@
 
 #include "GLUT_Window.h"
 
+using namespace SR;
+
 WindowGLUT::WindowGLUT()
 {
   

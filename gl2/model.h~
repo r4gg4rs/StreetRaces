@@ -1,8 +1,0 @@
-#ifndef STREETRACER_MODEL_H
-#define STREETRACER_MODEL_H
-
-class Model
-{
-
-};
-#endif

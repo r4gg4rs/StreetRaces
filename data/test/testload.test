@@ -1,0 +1,22 @@
+
+Scene: 
+{
+	MeshObject:
+	{
+		Position{x:0,y:0,z:0},
+		Mesh : mesh,
+		Material : material
+	},
+	MeshObject:
+	{
+		Position{x:1,y:1,z:1},
+		Mesh : mesh,
+		Material : material
+	}
+
+
+},
+
+Camera {
+	position {x:10 , y:10, z:10 }
+}

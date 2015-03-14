@@ -1,8 +1,0 @@
-#ifndef STREETRACER_GAMESTATE_H
-#define STREERRACER_GAMESTATE_H
-
-class GameState
-{
-
-};
-#endif

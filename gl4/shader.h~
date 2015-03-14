@@ -1,8 +1,0 @@
-#ifndef STREETRACER_SHADER_H
-#define STREETRACER_SHADER_H
-
-class Shader
-{
-
-};
-#endif

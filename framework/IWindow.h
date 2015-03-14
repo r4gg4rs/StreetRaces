@@ -6,6 +6,8 @@
  #ifndef STREETRACER_IWINDOW_H
  #define STREETRACER_IWINDOW_H
  
+ #include "../core/base.inc"
+ 
  namespace SR
  {
     class IWindow

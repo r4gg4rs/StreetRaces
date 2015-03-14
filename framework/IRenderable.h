@@ -3,9 +3,10 @@
 
 namespace SR
 {
-  class Irenderable
+  class IRenderable
   {
-    virtual void Render();
+    public:
+      virtual void Render()=0;
   };
 }
 #endif

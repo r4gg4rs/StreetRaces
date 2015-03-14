@@ -2,6 +2,8 @@
 #ifndef SR_MATERIAL_H
 #define SR_MATERIAL_H
 
+#include "../core/Color.h"
+
 namespace SR
 {
   class Material
@@ -14,13 +16,37 @@ namespace SR
       Material();
       ~Material();
       
-      void SetAmbient( const Color& ambient);
-      void SetSpecular( const Color& specular);
-      void SetDiffuse( const Color& diffuse);
+      void SetAmbient( const Color& ambient)
+      {
+        m_ambient = ambien;
+      }
       
-      Color&  GetAmbient();
-      Color&  GetSpecular();
-      Color&  GetDiffuse();
+      void SetSpecular( const Color& specular)
+      {
+        m_specular = specilar;
+      }
+      
+      void SetDiffuse( const Color& diffuse)
+      {
+        m_diffuse = diffuse;
+      }
+      
+      Color&  GetAmbient()
+      {
+        return m_ambient;
+      }
+      
+      
+      Color&  GetSpecular()
+      {
+        return m_specular;
+      }
+      
+      
+      Color&  GetDiffuse()
+      {
+        return m_diffuse;
+      }
   };
 }
 #endif

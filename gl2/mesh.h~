@@ -1,8 +1,0 @@
-#ifndef STREETRACER_MESH_H
-#define STREETRACER_MESH_H
-
-class Mesh
-{
-
-}
-#endif

@@ -2,7 +2,8 @@
 #define STREETRACER_IMESHOBJECT_H
 
 #include "IEntity.h"
-#include "imesh.h"
+#include "IMesh.h"
+#include "ICamera.h"
 
 
 namespace SR
@@ -10,7 +11,8 @@ namespace SR
   class IMeshObject : public IEntity
   {
     public:
-      virtual IMesh*  GetMesh();
+      virtual IMesh*  GetMesh()=0;
+      virtual void Render(const ICamera& camera)=0;
   };
 }
 

@@ -1,11 +1,16 @@
 
 #include "GL_RenderingSystem.h"
 
+#include "GL_VAO.h"
+#include "../framework/IBuffer.h"
+#include "GL_ElementBuffer.h"
+#include "GL_ArrayBuffer.h"
+
 using namespace SR;
 
 GL_RenderingSystem::GL_RenderingSystem()
 {
-  
+  p_renderer = new GL_Renderer();
 }
 
 GL_RenderingSystem::~GL_RenderingSystem()
@@ -64,4 +69,9 @@ void GL_RenderingSystem::Render()
   {
     m_renderables[i].Render();
   }
+}
+
+void GL_RenderingSystem::Render(std::vector<unsigned int>& renderList)
+{
+  
 }

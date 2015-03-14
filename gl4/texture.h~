@@ -1,8 +1,0 @@
-#ifndef STREETRACER_TEXTURE_H
-#define STREETRACER_TEXTURE_H
-
-class Texture
-{
-
-};
-#endif

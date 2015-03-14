@@ -1,8 +1,0 @@
-#ifndef STREETRACER_RTTI_H
-#define STRAATRACER_RTTI_H
-
-class Rtti
-{
-
-};
-#endif
