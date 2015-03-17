@@ -3,11 +3,14 @@
 
 #include "base.inc"
 #include "MeshObject.h"
+#include "../core/base.inc"
 #include "../framework/IRenderer.h"
 #include "../framework/IScene.h"
 
+
 namespace SR
-{
+{ 
+ 
   class Scene : public IScene
   {
     public:
@@ -18,10 +21,13 @@ namespace SR
       void Add(MeshObject* object); // call RenderingSystem.add(MeshObject)
       void Render(IRenderer* renderer);
       void InitMeshes(IRenderer* renderer);
+
     //  void Visit(IMeshObjectVisitor& visitor);
     private:
    //   std::vector<IEntity*>     m_entitys;
       std::vector<MeshObject*>  m_meshObjects; 
   };
+  
+  typedef std::shared_ptr<Scene> ScenePtr;
 }
 #endif

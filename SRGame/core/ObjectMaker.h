@@ -5,10 +5,14 @@ namespace SRGame
 {
 	namespace ObjectMaker
 	{
-	
+		
+		
+		
+		
 		//TODO register maker to SR:ObjectFactory
-		static MeshObject* MakeCar()
+		static MeshObjectPtr MakeCar()
 		{
+		  /*
 			MeshObject* car = new MeshObject();
 			MeshObject* flWheel = new MeshObject(); // front left wheel
 			MeshObject* frWheel = new MeshObject(); // front right wheel
@@ -19,6 +23,15 @@ namespace SRGame
 			car.Add(frWheel);
 			car.Add(rlWheel);
 			car.Add(rrWheel); 
+			*/
+		}
+		
+		static void Initialize() 
+		{
+			SR::ObjectFactoryPtr factory = SR::Singleton<SR::ObjectFactory>::GetSingletonSPtr();
+			std::string carMaker ="Car";
+			factory->RegisterCreator(carMake,&SRGame::ObjectMaker::MakeCar);
+			
 		}
 	}
 }

@@ -1,6 +1,8 @@
 #ifndef SINGLETON_H
 #define SINGLETON_H
 
+#include <memory>
+
 namespace SR 
 {
 
@@ -8,6 +10,8 @@ namespace SR
 	class Singleton
 	{
 		public:
+		 
+		  
 			static T* GetSingletonPtr()
 			{
 				static T* instance;
@@ -18,7 +22,13 @@ namespace SR
 				}
 				return instance;		
 			}
-		
+		  
+		  
+		  static std::shared_ptr<T> GetSingletonSPtr()
+		  {
+		      std::shared_ptr<T> instance(GetSingletonPtr());
+		      return instance;
+		  }
 		
 			static T& GetSingleton()
 			{

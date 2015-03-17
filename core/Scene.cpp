@@ -26,11 +26,14 @@ void Scene::Add(MeshObject* obj)
 
 void Scene::Render(IRenderer* renderer)
 {
- //   std::cout << "Scene render"<<std::endl;
+    //std::cout << "Scene render"<< m_meshObjects.size() <<std::endl;
     for(unsigned int i=0; i < m_meshObjects.size(); i++)
     {
-      if(m_meshObjects[i]->NeedsToRender())renderer->Render(m_meshObjects[i]);
-  //    std::cout <<"needs to render"<< std::endl;
+      if(m_meshObjects[i]->NeedsToRender())
+      {
+         //std::cout <<"needs to render "<< i << std::endl;
+        renderer->Render(m_meshObjects[i]);
+      }
     }
 }
 

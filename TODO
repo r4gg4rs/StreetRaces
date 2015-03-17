@@ -1,0 +1,56 @@
+
+
+Scene graph implemetation
+
+  architecture overview
+    NodeObject ( base class )
+  
+    MeshObject : public NodeObject
+      -mesh
+      -material
+
+    Camera : public NodeObject
+
+
+
+    Rendering
+      scene.Render
+        NodeObject.Render
+
+        MeshObject.Render(IRenderer renderer)
+          calculate current modelMatrix  
+          renderer.Render(Mesh, Material, ModelMatrix);
+
+-shared_ptr
+
+- mesh init should propably make from modelmanager when mesh is created 
+  becose if it made in scene init method it can't be done in runtime.
+  (then scene don't need initmeshes metod.)
+
+  (or add scene listener when new object is added and call renderer init)
+
+
+- shader creation (ShaderManager)
+- material 
+- lights 
+- ObjectFactory register creator
+- audio
+- mesh loader
+- skeletal animation
+- collision ( bounding volume and the collision detection )
+
+- meshobject hierarcy transformation( child object)
+- follow camera
+
+- event system
+- controller
+
+- texture's
+- component system so that component can be registered 
+- physics
+  -body
+  -force generator
+  -physic manager
+
+bsp tree, sceneGraph
+- object select ( iselectable)

@@ -8,6 +8,8 @@
 #ifndef SR_ISHADER_H
 #define SR_ISHADER_H
 
+#include <memory>
+
 namespace SR
 {
   /**
@@ -23,7 +25,9 @@ namespace SR
 			virtual void SetUniform(std::string& name, float value1, float value2,float value3)=0;
 			virtual void SetUniform(std::string& name, const Vector3& value)=0;
 			virtual void SetUniform(std::string& name, const Matrix4& value)=0;
-  }
+  };
+  
+  typedef std::shared_ptr<IShader> IShaderPtr;
 }
 
 #endif

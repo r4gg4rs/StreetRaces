@@ -4,6 +4,7 @@
 #include "../core/base.inc"
 #include "../GLUT/GLUT.inc"
 #include "../math/math.inc"
+#include "../core/Color.h"
 
 namespace SR
 {
@@ -27,11 +28,14 @@ namespace SR
 			void SetUniform(std::string& name, float value1, float value2);
 			void SetUniform(std::string& name, float value1, float value2,float value3);
 			void SetUniform(const char* name, const Vector3& value);
+		  void SetUniform(const char* name, const Color& value);
 			void SetUniform(const char*, const Matrix4& value);
 
 		public:
 			std::vector<GLint> 			m_shaders;
 			GLuint						m_programHandle;
 		};
+		
+		typedef std::shared_ptr<Shader> ShaderPtr;
 }
 #endif

@@ -14,6 +14,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform2.hpp>
+
+#include "../core/base.inc"
+
 typedef float Real;
 
 namespace SR
@@ -54,5 +57,7 @@ namespace SR
       Real        m_near;
       Real        m_far;
   };
+  
+ // std::shared_ptr<Camera> CameraPtr;
 }
 #endif

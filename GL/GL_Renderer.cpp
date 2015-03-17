@@ -35,14 +35,18 @@ FragColor = vec4(1.0, 0.0, 0.0, 1.0);\
   std::string vertSource = loader->LoadShader(vertFile);
   std::string fragSource = loader->LoadShader(fragFile);
   m_col = Vector3(1.0,0.0,0.0);
- // std::cout << "Test loader vert " << vertSource << std::endl;
-//  std::cout << "Test loader frag" << fragSource << std::endl;
+  //std::cout << "Test loader vert " << vertSource << std::endl;
+ // std::cout << "Test loader frag" << fragSource << std::endl;
   
   p_shader = new Shader();
+  //std::cout <<"shader created" <<std::endl;
+  
   p_shader->SetSource( vertSource, GL_VERTEX_SHADER);
   p_shader->SetSource( fragSource, GL_FRAGMENT_SHADER);
-
+  
+  //std::cout << "source set" << std::endl;
   p_shader->Link();
+  //std::cout << "link" << std::endl;
   std::string vertPos = "Position";
 	p_shader->BindAttribLocation(0,vertPos);
 
@@ -78,7 +82,7 @@ void  GL_Renderer::Clear()
 /*
   Generate buffers in mesh
 */
-void  GL_Renderer::InitMesh(IMesh* mesh)
+void  GL_Renderer::InitMesh(IMeshPtr mesh)
 {
  /*
   GL_ArrayBuffer* posBuffer = new GL_ArrayBuffer();
@@ -99,10 +103,11 @@ void  GL_Renderer::InitMesh(IMesh* mesh)
 */
   Vao* vao = new Vao();
   vao->SetData(mesh->GetVertices(), mesh->GetIndices());
+  mesh->AddBuffer(vao);
 }
 
 
-void  GL_Renderer::Render(IMesh* mesh)
+void  GL_Renderer::Render(IMeshPtr mesh)
 {
   mesh->Render();
 //  std::cout <<"Render size " << mesh->GetSize() << std::endl;
@@ -110,20 +115,26 @@ void  GL_Renderer::Render(IMesh* mesh)
  
 }
 
+
+void GL_Renderer::Render(IMeshPtr mesh, MaterialPtr material, Matrix4 model)
+{
+ // std::cout << "Render mesh"<< std::endl;
+  p_shader->Bind(); // material->Bind() ?
+  p_shader->SetUniform("color",m_col);
+  p_shader->SetUniform("projectionMatrix", p_camera->GetProjectionMatrix());
+  p_shader->SetUniform("viewMatrix" , p_camera->GetViewMatrix());
+  p_shader->SetUniform("modelMatrix", model);
+  
+  mesh->Render();
+  glDrawElements(GL_TRIANGLES, mesh->GetSize(), GL_UNSIGNED_INT,0);
+}
+
+
 void GL_Renderer::Render(MeshObject* object)
 {
-	std::cout<<"render"<<std::endl;
-	//object->SetPosition(Vector3(-0.4, 6.2,0.4));
-	
-	//object->Rotate(Vector3(0.5,0.0,0.5),0.45);
-/*  
-  Vector3 pos = object->GetPosition();
-  Vector3 newpos = pos + Vector3(0.002,0.0,0.0);
-  object->SetPosition(newpos);
-  */
   object->Rotate(Vector3(0.0,1.0,0.0), 0.001);
-  
-  IMesh* mesh = object->GetMesh();
+
+  IMeshPtr mesh = object->GetMesh();
   Matrix4 model = object->GetModelMatrix();
 
   p_shader->Bind();
@@ -134,33 +145,22 @@ void GL_Renderer::Render(MeshObject* object)
   p_shader->SetUniform("modelMatrix", model);
 
 
-//  p_shader->SetUniform(viewName, p_camera->GetViewMatrix());
   mesh->Render();
   Matrix4 view = p_camera->GetViewMatrix();
- // view.Print();
-  //Matrix4 projection = p_camera->GetProjectionMatrix();
-  view.Print();
-  
-//  Matrix4 pv = view *projection;
-//  pv.Print();
-//  Matrix4 vp = projection * view;
-//  vp.Print();
- /*
-  for(unsigned int i=0; i < 16; i++)
-  {
-    std::cout <<"Matrix i " << i << " = "<< view[i] << std::endl;
-  }
-  */
+
   //glDrawArrays(GL_TRIANGLES,0, mesh->GetSize());  // Render whitout indices
   glDrawElements(GL_TRIANGLES, mesh->GetSize(), GL_UNSIGNED_INT,0);
-  
+//glDrawArrays();
+  //glBindVertexArray(0);  
   
   // Render child objects
-  for(MeshObjectList::iteratori t= m_MOchilds.begin(); it != m_MOchilds.end() it++)
+  /*
+  
+  for(MeshObjectList::iterator it= m_MOchilds.begin(); it != m_MOchilds.end() it++)
   {
   	Render( it );
   }
-  
+  */
 }
 
 

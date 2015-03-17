@@ -8,11 +8,10 @@
 #include "../core/base.inc"
 #include "../GL/Shader.h"
 #include "../core/Color.h"
-
+#include "../framework/IMesh.h"
 namespace SR
 {
-	namespace T
-	{
+
 		struct Uniform
 		{
 			std::string		name;
@@ -34,21 +33,23 @@ namespace SR
 		{
 			private:
 				std::vector<Uniform>		m_uniforms;
-				Shader*									p_shader;
+				ShaderPtr								p_shader;
 				MaterialType						m_type;
 					
 			public:
 				Material();
 				~Material();
 				
-				void		AddUniform(const Uniform& uniform);
-				void		Initialize();
-				void		SetColor(const Color& color);
-				Shader*	GetShader();
+				void		    AddUniform(const Uniform& uniform);
+				void		    Initialize();
+				void        Initialize(ImeshPtr mesh);
+				void		    SetColor(const Color& color);
+				ShaderPtr   GetShader();
 				
-				void		Apply();
+				void	    	Apply();
 				
 		};
-	}
+		
+	  typedef std::shared_ptr<Material> MaterialPtr;
 }
 #endif

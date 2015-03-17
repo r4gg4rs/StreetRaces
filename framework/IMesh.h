@@ -39,8 +39,9 @@ namespace SR
       virtual void                        Render()=0;
       virtual unsigned int                GetSize()=0;
       virtual void                        AddBuffer(IBuffer* buffer)=0;
-    
   };
+  
+  typedef std::shared_ptr<IMesh>  IMeshPtr;
 }
 
 #endif

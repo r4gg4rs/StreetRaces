@@ -78,7 +78,7 @@ namespace SR
 				std::string mo = "MeshObject";
 				std::string sscene ="Scene:";
 				
-				bool isObject = false;
+				//bool isObject = false;
 				std::cout << "Starting to parse scene " << filename<<std::endl;
 				int count = 0;
 				while(std::getline(file, line) )
@@ -96,7 +96,7 @@ namespace SR
 						std::string sceneString;
 						int scount = 0;
 						bool sbool = true;
-						bool s_start_found = false;
+				//		bool s_start_found = false;
 						while(sbool)
 						{
 							std::getline(file,line);

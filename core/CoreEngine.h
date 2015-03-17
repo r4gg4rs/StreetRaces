@@ -22,20 +22,20 @@ namespace SR
 			~CoreEngine();
       //initialize(std::string filename)
       //initialize(stream)
-			void        SetScene(IScene* scene);
-			IScene*     GetScene();
-	  	void        SetRenderer(IRenderer* renderer);
+		//	void        SetScene(IScene* scene);
+			void        SetScene(IScenePtr scene);
+			IScenePtr   GetScene();
+	  	void        SetRenderer(IRendererPtr renderer);
 	  	IRenderer*  GetRenderer();
 	  	void        Start();
 			void        Update();
 			void        Render();
 			
 		private:
-
-		  IScene*           p_scene;
-		  IRenderer*        p_renderer;
+      IScenePtr           p_scene;
+		  IRendererPtr        p_renderer;
 	};
-
+  typedef std::shared_ptr<CoreEngine> CoreEnginePtr;
 };
 
 #endif

@@ -13,17 +13,34 @@ ObjectFactory::~ObjectFactory()
   
 }
 
+
+void ObjectFactory::RegisterCreator(std::string& name,ObjectCreatorPtr creator )
+{
+ 	m_creatorRegister[name] = creator;
+}
+
+ 
+MeshObjectPtr ObjectFactory::GetObject( std::string& name)
+{
+	return m_creatorRegister[name](); 
+	
+	//MeshObjectPtr meshObject(new MeshObject);
+	//return meshObject;
+}
+
+/*
+
 MeshObject* ObjectFactory::GetObject(std::string& name)
 {
   MeshObject* object =GetTestObject();
   return object;
   
 }
-
+*/
 MeshObject* ObjectFactory::GetTestObject()
 {
   MeshObject* object = new MeshObject();
-  Mesh* mesh = new Mesh();
+  MeshPtr mesh(new SR::Mesh);
   mesh->AddVertices(Vertex(-0.5,-0.5, 1.5)); // 0
   mesh->AddVertices(Vertex( 0.5,-0.5, 1.5)); // 1
   mesh->AddVertices(Vertex( 0.5, 0.5, 1.5)); // 2

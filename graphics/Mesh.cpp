@@ -73,6 +73,7 @@ void Mesh::AddFace(Face4 face)
   m_normals.push_back( normal);
   m_normals.push_back( normal);
   m_normals.push_back( normal);
+  m_size = m_indices.size();
 }
 
 Indices&  Mesh::GetIndices()

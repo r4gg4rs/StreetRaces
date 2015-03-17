@@ -10,6 +10,8 @@
  #include "IMesh.h"
  #include "IMaterial.h"
  
+ #include <memory>
+ 
  namespace SR
  {
   class IModel
@@ -19,6 +21,7 @@
       virtual IShader*    GetShader()=0;
       virtual IMaterial*  GetMaterial()=0;
       virtual IMesh*      GetMesh()=0;
-  }
+  };
+    std::shared_ptr<IModel> IModelPtr;
  }
  #endif

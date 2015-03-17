@@ -14,8 +14,8 @@ namespace SR
     
       void Create(std::string& name, int width, int height);
       void Resize(int width, int height);
-  
-  
   };
+  
+  typedef std::shared_ptr<WindowGLUT> WindowGLUTPtr;
 }
 #endif

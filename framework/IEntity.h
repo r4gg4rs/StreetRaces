@@ -8,13 +8,16 @@
  #define STREETRACER_IENTITY_H
  
  #include "../math/math.inc"
+ #include <memory>
  
  namespace SR
  {
    class IEntity
    {
      public:
-      virtual Matrix4&   GetModelMatrix()=0; //Onko tarpeen jos ei ole meshiä?
+    //  virtual Matrix4&   GetModelMatrix()=0; //Onko tarpeen jos ei ole meshiä?
    };
+   
+   typedef std::shared_ptr<IEntity> IEntityPtr;
  }
  #endif

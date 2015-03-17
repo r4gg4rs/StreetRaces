@@ -53,7 +53,7 @@
         unsigned int                GetSize();
       
       
-      private:
+      protected:
         Vertices                    m_vertices;
         Normals                     m_normals;
         Colors                      m_colors;
@@ -65,5 +65,6 @@
         Faces                       m_faces;
         //Vao*  p_vao;
    };
+    typedef std::shared_ptr<Mesh>   MeshPtr;  
  }
  #endif

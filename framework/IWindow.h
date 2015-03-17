@@ -19,5 +19,7 @@
         int   m_width;
         int   m_height;
     };
+    
+    typedef std::shared_ptr<IWindow> IWindowPtr;
  }
  #endif

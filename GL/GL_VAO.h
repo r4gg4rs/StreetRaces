@@ -23,6 +23,7 @@
       void Init();
       void SetData(std::vector<Vector3>& vertices, std::vector<unsigned int>& indices);
       void Bind();
+      void Unbind();
    private:
     std::vector<IBuffer*> m_buffers;
     GLuint                m_vaoID;

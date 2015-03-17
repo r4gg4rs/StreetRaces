@@ -21,5 +21,7 @@ namespace SR
       std::vector<IEntity*>   m_childs;
       IEntity*                p_parent;
   };
+  
+//  std::shared_ptr<Entity> EntityPtr;
 }
 #endif

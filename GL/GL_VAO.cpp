@@ -1,4 +1,5 @@
 #include "GL_VAO.h"
+#include <iostream>
 
 using namespace SR;
 
@@ -32,13 +33,16 @@ void Vao::Init()
 
 void Vao::SetData(std::vector<Vector3>& vertices, std::vector<unsigned int>& indices)
 {
+  glGenVertexArrays(1, &m_vaoID); 
+  glBindVertexArray(m_vaoID);
+  
   GLuint vertBuffer;
   glGenBuffers(1,&vertBuffer);
   glBindBuffer(GL_ARRAY_BUFFER, vertBuffer);
   glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * vertices.size(), &vertices[0],GL_STATIC_DRAW);
   
-  glGenVertexArrays(1, &m_vaoID);
-  glBindVertexArray(m_vaoID);
+
+
   glEnableVertexAttribArray(0);
   
   glBindBuffer(GL_ARRAY_BUFFER, vertBuffer);
@@ -51,10 +55,11 @@ void Vao::SetData(std::vector<Vector3>& vertices, std::vector<unsigned int>& ind
   glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
   
   
-  
+  glBindVertexArray(0);
 }
 
 void Vao::Bind()
 {
+ //std::cout << "Bind vertex array " << m_vaoID << std::endl;
   glBindVertexArray(m_vaoID);
 }

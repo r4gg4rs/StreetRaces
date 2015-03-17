@@ -7,6 +7,7 @@ Shader::Shader()
 
 }
 
+
 Shader::~Shader()
 {
 	for(unsigned int i=0; i < m_shaders.size(); i++) 
@@ -16,10 +17,13 @@ Shader::~Shader()
 	glDeleteProgram( m_programHandle);
 }
 
+
 void Shader::SetSource(std::string& source, GLenum shaderType)
 {
+   // std::cout << "Set source"<< std::endl;
 	SetSource(source.c_str(), shaderType);
 }
+
 
 void Shader::SetSource(const char* source, GLenum shaderType)
 {
@@ -56,6 +60,7 @@ void Shader::SetSource(const char* source, GLenum shaderType)
 
 	m_shaders.push_back(shader);
 }
+
 
 void Shader::Link()
 {
@@ -152,15 +157,25 @@ void Shader::SetUniform(std::string& name, float value1, float value2,float valu
 void Shader::SetUniform(const char* name, const Vector3& vec)
 {
   int loc = glGetUniformLocation(m_programHandle,name);
-  std::cout << "Shader Uniform " << name <<" " << loc << std::endl;
-  glUniform3fv(loc,1, vec.Ptr());
+  //std::cout << "Shader Uniform " << name <<" " << loc << std::endl;
+  if( loc > -1)glUniform3fv(loc,1, vec.Ptr());
 }
+
+
+
+void Shader::SetUniform(const char* name, const Color& color)
+{
+  int loc = GetUniformLocation(name);
+  
+  if( loc > -1) glUniform3fv(loc,1,color.Ptr());
+}
+
 
 void Shader::SetUniform(const char* name, const Matrix4& mat)
 {
    int loc = glGetUniformLocation(m_programHandle,name);
-  std::cout << " Shader uniform " << name << " " << GetUniformLocation(name) << std::endl;
+  //std::cout << " Shader uniform " << name << " " << GetUniformLocation(name) << std::endl;
 //  std::cout << "Loc " << loc << std::endl;
   
-  glUniformMatrix4fv(GetUniformLocation(name),1,false, mat.Ptr());
+  if(loc > -1)glUniformMatrix4fv(GetUniformLocation(name),1,false, mat.Ptr());
 }

@@ -6,7 +6,7 @@
 
 namespace SR
 {
-  class Material
+  class MaterialO
   {
     private:
       Color     m_abient;

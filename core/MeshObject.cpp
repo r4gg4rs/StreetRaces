@@ -1,9 +1,10 @@
 
 #include "MeshObject.h"
 #include <iostream>
+
 using namespace SR;
 
-MeshObject::MeshObject() :p_mesh(NULL), m_isVisible(true), m_needsToRender(true)
+MeshObject::MeshObject()// :p_mesh(NULL), m_isVisible(true), m_needsToRender(true)
 {
   m_matrixNeedsToUpdate = true;
 }
@@ -13,28 +14,45 @@ MeshObject::~MeshObject()
   
 }
 
-
+/*
 void MeshObject::Add(MeshObject* mo ) 
 {
 	m_MOchilds.push_back(mo);
 }
+*/
 
+void MeshObject::AddComponent(std::string& name, ComponentPtr component)
+{
+  
+  m_components[name] = component;
+  component->p_owner = shared_from_this();
+ // component->p_parent = shared_from_this();
+}
+
+
+ComponentPtr MeshObject::GetComponent(std::string& name)
+{
+  return m_components[name];
+}
+
+/*
 void MeshObject::SetPosition(const Vector3& position)
 {
   m_position = position;
   m_matrixNeedsToUpdate = true;
 }
-
+*/
 void MeshObject::Move(const Vector3& pos)
 {
 	m_position += pos;
 	m_matrixNeedsToUpdate = true;
 }
-
+/*
 Vector3& MeshObject::GetPosition()
 {
   return m_position;
 }
+*/
 
 void MeshObject::SetRotation(const Vector3& axis, Real angle)
 {
@@ -68,17 +86,28 @@ void MeshObject::Rotate(const Vector3& axis, Real angle)
 }
 
 
-void MeshObject::SetMesh(IMesh* mesh)
+void MeshObject::SetMesh(IMeshPtr mesh)
 {
   p_mesh = mesh;
   m_needsToRender = p_mesh != NULL;
 }
 
-IMesh* MeshObject::GetMesh()
+IMeshPtr MeshObject::GetMesh()
 {
   return p_mesh;
 }
 
+void MeshObject::SetMaterial(MaterialPtr material)
+{
+  p_material = material;
+}
+
+
+MaterialPtr MeshObject::GetMaterial()
+{
+  return p_material;
+}
+/*
 Matrix4& MeshObject::GetModelMatrix()
 {
   if(m_matrixNeedsToUpdate) UpdateMatrix();
@@ -112,7 +141,7 @@ void MeshObject::UpdateMatrix()
   
   m_modelMatrix = translation * euler; // * rotation;
 }
-
+*/
 void MeshObject::Render(const ICamera& camera)
 {
   
@@ -127,11 +156,26 @@ void MeshObject::Render() // is this nesassery?
   }
 }
 
+
+void MeshObject::Render(IRendererPtr renderer)
+{
+  if(m_isVisible && m_needsToRender)
+  {
+    
+  }
+  if( p_mesh != NULL && p_material != NULL)
+  {
+    renderer->Render(p_mesh, p_material, GetModelMatrix());
+  }
+}
+
+
+/*
 void MeshObject::SetVisibility(bool value)
 {
   m_isVisible = value;
 }
-
+*/
 void MeshObject::_SetNeedsToRender(bool value)
 {
   m_needsToRender = value;
@@ -141,3 +185,11 @@ bool MeshObject::NeedsToRender()
 {
   return (m_isVisible && m_needsToRender);
 }
+
+void MeshObject::Render(IRenderer* renderer)
+{
+//  renderer->Render(*this);  
+}
+
+
+
