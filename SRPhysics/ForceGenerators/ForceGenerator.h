@@ -8,7 +8,7 @@ namespace SR
     public:
       ForceGenerator();
       ~ForceGenerator();
-      void UpdateForce(BodyComponentPtr body, Real dt)=0;
+      void Update(BodyPtr body, Real dt)=0;
   };
   
   typedef std::shared_ptr<ForceGenerator> ForceGeneratorPtr;

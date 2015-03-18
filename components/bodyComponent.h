@@ -17,6 +17,9 @@ namespace SR
 		  Vector3   m_acceleration;
 		  Vector3   m_forces;
 		  
+		  Vector3   m_angularVelocity;
+		  
+		  
 		  void SetMass(Real mass)
 		  {
 		    m_inverseMass = 1 / mass;
