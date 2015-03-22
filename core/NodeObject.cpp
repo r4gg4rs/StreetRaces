@@ -61,6 +61,12 @@ void NodeObject::SetPosition(const Vector3& position)
 }
 
 
+void NodeObject::AddPosition( const Vector3& movment)
+{
+	m_position += movment;
+}
+
+
 Vector3& NodeObject::GetPosition()
 {
   return m_position;

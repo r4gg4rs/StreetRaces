@@ -17,7 +17,7 @@ int main( int argc, char** argv )
 	std::vector<std::string> forceList;
 	forceList.push_back(gravity);
 	
-	p_engine->Add( body, forceList);ö
+	p_engine->Add( body, forceList);
 
 	SR::BodyComponent test;
 	test.SetMass(10.0);

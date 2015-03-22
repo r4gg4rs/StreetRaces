@@ -66,7 +66,20 @@ IRenderer*  CoreEngine::GetRenderer()
 
 void CoreEngine::Update()
 {
-  
+	Real dt = 0.0;
+	
+	for(Index i=0; i< p_engines.size(); i++ ) 
+	{
+		p_engines[i]->Update(dt);
+	}  
+}
+
+void CoreEngine::Initialize()
+{
+	for(Index i=0; i < p_engines.size(); i++ ) 
+	{
+		p_engines[i]->Initialize();
+	}
 }
 
 void CoreEngine::Start()
@@ -76,4 +89,15 @@ void CoreEngine::Start()
   {
     //p_scene->InitMeshes(p_renderer);
   }
+  
+  for(Index i =0; i < p_engines.size(); i++ )
+  {
+  	p_engines[i]->Start();
+  }
 }
+
+void CoreEngine::AddEngine( IEnginePtr engine ) 
+{
+	p_engines.push_back(engine);
+}
+

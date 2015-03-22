@@ -10,7 +10,8 @@ SOURCES = main.cpp\
 	../graphics/Mesh.cpp ../graphics/Material2.cpp\
 	../GL/GL_ArrayBuffer.cpp ../GL/GL_ElementBuffer.cpp ../GL/GL_VAO.cpp\
 	../GL/GL_Renderer.cpp ../GL/Shader.cpp ../GL/GL_ShaderManager.cpp\
-	../camera/Camera.cpp
+	../camera/Camera.cpp\
+	../SRPhysics/PhysicsEngine.cpp ../SRPhysics/ForceRegistry.cpp 
 
 ALL : $(SOURCES)
 	$(CC) $(SOURCES) $(FLAGS) $(LIBS) $(PLIBS) -o $(PROGRAM)

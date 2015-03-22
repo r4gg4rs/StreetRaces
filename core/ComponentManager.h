@@ -1,6 +1,9 @@
 #ifndef SR_COMPONENTMANAGER_H
 #define SR_COMPONENTMANAGER_H
 
+#include "base.inc"
+#include "Component.h"
+
 namespace SR
 {
   typedef ComponentPtr (*ComponentCreatorPtr)();
@@ -11,7 +14,7 @@ namespace SR
       std::map<std::string, ComponentCreatorPtr> m_creatorMap;
     public:
       
-      void RegisterCreator(std::string& name, CompnentCreatorPtr creator)
+      void RegisterCreator(std::string& name, ComponentCreatorPtr creator)
       {
         m_creatorMap[name] = creator;
       }
@@ -19,9 +22,11 @@ namespace SR
       
       ComponentPtr GetComponent(std::string& name)
       {
-        return m_creatorMap[name];
+        return m_creatorMap[name]();
       }
       
   };
+  
+  std::shared_ptr<ComponentManager> ComponentManagerPtr;
 }
 #endif

@@ -49,6 +49,7 @@ namespace SR
       NodeObjectPtr GetParent   ();
       
       void          SetPosition (const Vector3& position);
+      void					AddPosition (const Vector3& movment);
       Vector3&      GetPosition ();
       
       void          SetRotation (const Euler& rotation);

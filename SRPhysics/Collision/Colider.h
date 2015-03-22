@@ -3,6 +3,16 @@
 
 namespace SR
 {
+  
+  struct CollisionData
+  {
+    BodyPtr   body[2];
+    Vector3   point;
+    Vector3   normal;
+    Real      penetration;
+    bool      intersect;
+  };
+  
 	class Colider
 	{
             public:
@@ -14,7 +24,7 @@ namespace SR
             private:
                 ColiderType     m_type;
             public:
-                virtual bool  Intersect(const Colider& colider ) = 0;
+                virtual CollisionData  Intersect(const Colider& colider ) = 0;
                 virtual void  Transform(const Vector3& translation) =0;
                 ColiderType   GetType(){ return m_type;}
                 

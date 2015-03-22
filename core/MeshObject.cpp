@@ -192,4 +192,7 @@ void MeshObject::Render(IRenderer* renderer)
 }
 
 
-
+void MeshObject::Print()
+{
+  std::cout << "MeshObject " <<  GetID() << std::endl; 
+}

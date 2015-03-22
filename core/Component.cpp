@@ -25,6 +25,18 @@ void Component::SetType(std::string& type)
 	m_type = type;
 }
 
+void Component::SetOwner(MeshObjectPtr owner)
+{
+  p_owner = owner;
+}
+/*
+void Component::AddListener(CEventType event, EventFunc callback)
+{
+  ComponentListener listener;
+  listener.event = event;
+  listener.callback = callback;
+}
+*/
 
 ID Component::GetID()
 {

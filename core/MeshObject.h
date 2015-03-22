@@ -62,6 +62,8 @@ namespace SR
       void      	SetVisibility(bool value);
       void      	_SetNeedsToRender(bool value);
       bool      	NeedsToRender();
+      
+      void          Print();
     private:
 //      Vector3     								m_position;
       Quaternion									m_rotation;
@@ -75,7 +77,7 @@ namespace SR
       Vector3											euler;
       
       ComponentMap                m_components;
-    
+    //SpherePtr										p_sphere; // bounding sphere
   };
   typedef std::shared_ptr<MeshObject> MeshObjectPtr;
 }

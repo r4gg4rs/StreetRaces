@@ -11,7 +11,7 @@
 #include "../framework/IMesh.h"
 namespace SR
 {
-
+		typedef std::shared_ptr<IMesh> IMeshPtr;
 		struct Uniform
 		{
 			std::string		name;
@@ -42,7 +42,7 @@ namespace SR
 				
 				void		    AddUniform(const Uniform& uniform);
 				void		    Initialize();
-				void        Initialize(ImeshPtr mesh);
+				void        Initialize(IMeshPtr mesh);
 				void		    SetColor(const Color& color);
 				ShaderPtr   GetShader();
 				

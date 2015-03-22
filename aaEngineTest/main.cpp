@@ -1,9 +1,10 @@
-#include "../core/base.inc"
 #include "../GLUT/GLUT.inc"
-#include "../core/CoreEngine.h"
 #include "../GL/GL_Renderer.h"
+#include "../core/base.inc"
+#include "../core/CoreEngine.h"
 #include "../core/Scene2.h"
 #include "../core/MeshObject.h"
+#include "../core/ComponentManager.h"
 #include "../graphics/Mesh.h"
 #include "../math/math.inc"
 #include "../core/base.inc"
@@ -14,17 +15,20 @@
 
 #include "../graphics/ModelManager.h"
 #include "TestCreator.h"
+#include "../SRPhysics/PhysicsEngine.h"
+#include "../SRPhysics/BodyComponent.h"
 
 
-SR::IWindow*      p_window;
-SR::CoreEngine*   p_coreEngine;
+SR::IWindow*            p_window;
+SR::CoreEngine*         p_coreEngine;
 
-SR::ICamera*      p_camera;
-SR::Loader*       p_loader;
-SR::ModelManager* p_modelManager;
+SR::ICamera*            p_camera;
+SR::Loader*             p_loader;
+SR::ModelManager*       p_modelManager;
 
-SR::IWindowPtr    m_window;
-SR::CoreEnginePtr m_coreEngine;
+SR::IWindowPtr          m_window;
+SR::CoreEnginePtr       m_coreEngine;
+std::shared_ptr<SR::ComponentManager>  p_componentManager;
 void Render()
 {
   p_coreEngine->Render();
@@ -60,6 +64,13 @@ int main(int argc, char** argv)
 
   
   p_coreEngine = SR::Singleton<SR::CoreEngine>::GetSingletonPtr();
+  p_componentManager = SR::Singleton<SR::ComponentManager>::GetSingletonSPtr();
+  std::string BC_str = "BodyComponent";
+  p_componentManager->RegisterCreator(BC_str, &SR::BodyComponent::Get);
+  SR::PhysicsEnginePtr physicsEngine = SR::Singleton<SR::PhysicsEngine>::GetSingletonSPtr();
+  
+  
+  
 //  m_coreEngine = SR::Singleton<SR::CoreEngine>::GetSingletonSPtr();
   p_modelManager = SR::Singleton<SR::ModelManager>::GetSingletonPtr();
   SR::IRendererPtr    p_renderer(new SR::GL_Renderer);
@@ -141,6 +152,17 @@ int main(int argc, char** argv)
   
   SR::MaterialPtr pmat1(new SR::Material);
   pobj1->SetMaterial(pmat1);
+  
+  SR::BodyComponentPtr body1; 
+  SR::ComponentPtr p_com1 = p_componentManager->GetComponent(BC_str);
+  std::string grav = "Gravity";
+  std::vector<std::string> fl;
+  fl.push_back(grav);
+  physicsEngine->Add(body1, fl);
+  std::string bodyComponentStr = "BodyComponent";
+  pobj1->AddComponent(bodyComponentStr,body1);
+  
+  
     
   pscene->Add(pobj1);
   pobj1->SetRotation(SR::Vector3(1.0,0.0,0.0), 0.25);
