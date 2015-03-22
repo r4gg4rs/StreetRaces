@@ -1,0 +1,16 @@
+#!/bin/bash
+eval printf %.0s* '{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+eval printf %.1s '*{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+
+printf "\n\n";
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
+printf "\n\n";
+
+make
+
+printf "\n\n";
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
+printf "\n\n";
+eval printf %.0s* '{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+eval printf %.1s '*{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+

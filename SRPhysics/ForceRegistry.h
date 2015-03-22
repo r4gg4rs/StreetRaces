@@ -1,11 +1,18 @@
 #ifndef SR_PHYSICS_FORCEREGISTRY_H
 #define SR_PHYSICS_FORCEREGISTRY_H
 
+#include "base.inc"
+#include "./ForceGenerators/ForceGenerator.h"
+#include "Body.h"
+#include <memory>
+
 namespace SR
 {
+	typedef std::shared_ptr<ForceGenerator> ForceGeneratorPtr;
+
   struct FG_Body
   {
-    ForceGeneratorPTr   generator;
+    ForceGeneratorPtr   generator;
     BodyPtr             body;
   };
   
@@ -15,7 +22,7 @@ namespace SR
   class ForceRegistry
   {
       private:
-        Registry registry;
+        Registry 		m_registry;
       public:
         void        Add     (ForceGeneratorPtr forceGen, BodyPtr body);
         void        Remove  (ForceGeneratorPtr forceGen, BodyPtr body);

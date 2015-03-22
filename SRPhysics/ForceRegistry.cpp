@@ -1,4 +1,6 @@
-#include "ForceRegistration.h"
+#include "ForceRegistry.h"
+
+using namespace SR;
 
 void ForceRegistry::Add(ForceGeneratorPtr forceGen, BodyPtr body)
 {
@@ -6,7 +8,7 @@ void ForceRegistry::Add(ForceGeneratorPtr forceGen, BodyPtr body)
   fgBody.generator = forceGen;
   fgBody.body = body;
   
-  registry.push_back(fgBody);
+  m_registry.push_back(fgBody);
 }
 
 
@@ -17,10 +19,10 @@ void ForceRegistry::Remove(ForceGeneratorPtr forceGen, BodyPtr body)
 }
 
 
-void ForceRegisty::Update(Real dt)
+void ForceRegistry::Update(Real dt)
 {
-  for(Index i=0; i< registry.size(); i++)
+  for(Index i=0; i< m_registry.size(); i++)
   {
-    registry[i].generator->Update(registry[i].body, dt);
+    m_registry[i].generator->Update(m_registry[i].body, dt);
   }
 }

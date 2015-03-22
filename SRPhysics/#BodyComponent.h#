@@ -1,0 +1,33 @@
+#ifndef SRPHYSICS_BODYCOMPONENT_H
+#define SRPHYSICS_BODYCOMPONENT_H
+
+#include "../core/Component.h"
+#include "Body.h"
+#include "base.inc"
+
+namespace SR
+{
+  class BodyComponent : public Component
+  {
+  private:
+    BodyPtr p_body;
+  public:
+    
+  };
+}
+
+/*
+namespace SR
+{
+	class BodyComponent : public Component, public Body
+	{
+		public:
+			BodyComponent() {}
+			~BodyComponent() {}
+	};
+
+	typedef std::shared_ptr<BodyComponent> BodyComponentPtr;
+}
+*/
+
+#endif
